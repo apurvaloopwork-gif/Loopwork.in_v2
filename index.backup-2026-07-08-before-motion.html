@@ -86,12 +86,8 @@
         font-size: 15px;
         cursor: pointer;
         border: 1px solid transparent;
-        transition: background .18s, color .18s, box-shadow .18s, transform .18s;
+        transition: background .18s, color .18s, box-shadow .18s;
         font-family: var(--sans)
-      }
-
-      .btn:hover {
-        transform: translateY(-1px)
       }
 
       .btn-primary {
@@ -270,91 +266,6 @@
         letter-spacing: .02em
       }
 
-      .loop-strip {
-        display: inline-grid;
-        grid-template-columns: repeat(5, max-content);
-        align-items: center;
-        gap: 10px;
-        margin-top: 24px;
-        padding: 8px;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, .68);
-        box-shadow: 0 18px 45px -34px rgba(10, 6, 4, .35)
-      }
-
-      .loop-node {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        padding: 8px 12px;
-        border-radius: 999px;
-        background: var(--sunk);
-        color: var(--muted);
-        font-family: var(--mono);
-        font-size: 11.5px;
-        white-space: nowrap
-      }
-
-      .loop-node::before {
-        content: "";
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: currentColor
-      }
-
-      .loop-node::after {
-        content: "";
-        position: absolute;
-        left: calc(100% + 3px);
-        width: 12px;
-        height: 1px;
-        background: var(--line)
-      }
-
-      .loop-node:last-child::after {
-        display: none
-      }
-
-      .loop-node:nth-child(1) {
-        animation: loopPulse 5s ease-in-out infinite
-      }
-
-      .loop-node:nth-child(2) {
-        animation: loopPulse 5s ease-in-out .7s infinite
-      }
-
-      .loop-node:nth-child(3) {
-        animation: loopPulse 5s ease-in-out 1.4s infinite
-      }
-
-      .loop-node:nth-child(4) {
-        animation: loopPulse 5s ease-in-out 2.1s infinite
-      }
-
-      .loop-node:nth-child(5) {
-        animation: loopPulse 5s ease-in-out 2.8s infinite
-      }
-
-      @keyframes loopPulse {
-
-        0%,
-        42%,
-        100% {
-          background: var(--sunk);
-          color: var(--muted);
-          box-shadow: none
-        }
-
-        18% {
-          background: #fff1ea;
-          color: var(--orange-d);
-          box-shadow: 0 0 0 4px rgba(240, 79, 42, .08)
-        }
-      }
-
       .statusbar {
         display: inline-flex;
         align-items: center;
@@ -490,21 +401,12 @@
       .msg {
         opacity: 0;
         transform: translateY(12px) scale(.98);
-        max-height: 140px;
-        transition: opacity .4s ease, transform .4s ease, max-height .35s ease, margin .35s ease
+        transition: opacity .4s ease, transform .4s ease
       }
 
       .msg.show {
         opacity: 1;
         transform: none
-      }
-
-      .msg.typing.done {
-        opacity: 0;
-        max-height: 0;
-        margin-bottom: 0;
-        overflow: hidden;
-        transform: translateY(-6px) scale(.98)
       }
 
       /* card icon gets a little life on hover */
@@ -651,45 +553,6 @@
         font-size: 14.5px
       }
 
-      .typing-bubble {
-        display: inline-flex;
-        gap: 4px;
-        align-items: center;
-        min-width: 58px;
-        justify-content: center
-      }
-
-      .typing-bubble i {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: currentColor;
-        opacity: .45;
-        animation: typingDot 1s ease-in-out infinite
-      }
-
-      .typing-bubble i:nth-child(2) {
-        animation-delay: .12s
-      }
-
-      .typing-bubble i:nth-child(3) {
-        animation-delay: .24s
-      }
-
-      @keyframes typingDot {
-
-        0%,
-        100% {
-          transform: translateY(0);
-          opacity: .35
-        }
-
-        45% {
-          transform: translateY(-3px);
-          opacity: .9
-        }
-      }
-
       .in .bubble {
         background: var(--sunk);
         border: 1px solid var(--line);
@@ -743,60 +606,6 @@
         font-size: 13px;
         color: var(--orange-d);
         font-family: var(--mono)
-      }
-
-      .flow-list {
-        display: grid;
-        gap: 8px;
-        margin-top: 16px
-      }
-
-      .flow-step {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 9px 11px;
-        border: 1px solid var(--line);
-        border-radius: 11px;
-        background: rgba(255, 255, 255, .54);
-        color: var(--muted);
-        font-family: var(--mono);
-        font-size: 12px;
-        opacity: .45;
-        transform: translateX(8px);
-        transition: opacity .35s ease, transform .35s ease, border-color .35s ease, background .35s ease
-      }
-
-      .flow-step::before {
-        content: "";
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: var(--dim)
-      }
-
-      .flow-step.show {
-        opacity: 1;
-        transform: none;
-        border-color: #f5cdb6;
-        background: #fffaf5;
-        color: var(--ink)
-      }
-
-      .flow-step.show::before {
-        background: var(--green);
-        box-shadow: 0 0 0 4px rgba(58, 138, 108, .12)
-      }
-
-      .flow-flag {
-        opacity: 0;
-        transform: translateY(8px);
-        transition: opacity .35s ease, transform .35s ease
-      }
-
-      .flow-flag.show {
-        opacity: 1;
-        transform: none
       }
 
       .metrics {
@@ -873,18 +682,9 @@
         border-radius: 12px;
         display: grid;
         place-items: center;
+        font-size: 20px;
         margin-bottom: 18px;
         color: #fff
-      }
-
-      .card .ic svg {
-        width: 25px;
-        height: 25px;
-        stroke: currentColor;
-        fill: none;
-        stroke-width: 2.2;
-        stroke-linecap: round;
-        stroke-linejoin: round
       }
 
       .card h3 {
@@ -1267,256 +1067,11 @@
         gap: 10px
       }
 
-      details[open] {
-        border-color: #f5cdb6;
-        box-shadow: 0 12px 34px -30px rgba(240, 79, 42, .5)
-      }
-
-      details[open] p {
-        animation: faqIn .24s ease both
-      }
-
-      @keyframes faqIn {
-        from {
-          opacity: 0;
-          transform: translateY(-4px)
-        }
-
-        to {
-          opacity: 1;
-          transform: none
-        }
-      }
-
-      .final .btn-primary {
-        animation: ctaGlow 3.2s ease-in-out infinite
-      }
-
-      @keyframes ctaGlow {
-
-        0%,
-        100% {
-          box-shadow: 0 8px 22px -8px rgba(240, 79, 42, .55)
-        }
-
-        50% {
-          box-shadow: 0 14px 34px -10px rgba(240, 79, 42, .78)
-        }
-      }
-
-      .mobile-sticky-cta {
-        display: none
-      }
-
-      @media(max-width:760px) {
-        body {
-          padding-bottom: 72px
-        }
-
-        .wrap {
-          padding: 0 18px
-        }
-
-        .banner {
-          padding: 8px 14px;
-          font-size: 11.5px;
-          line-height: 1.45
-        }
-
-        .nav-inner {
-          height: 60px
-        }
-
-        .logo {
-          font-size: 18px
-        }
-
-        .nav-cta {
-          gap: 8px
-        }
-
-        .nav-cta .btn-ghost {
-          display: none
-        }
-
-        .nav-cta .btn-primary {
-          padding: 9px 13px;
-          font-size: 13.5px
-        }
-
-        .hero {
-          padding: 58px 0 34px
-        }
-
-        h1 {
-          letter-spacing: -1.3px;
-          margin-top: 22px
-        }
-
-        .sub {
-          margin-top: 18px
-        }
-
-        .hero-cta {
-          margin-top: 28px
-        }
-
-        .hero-cta .btn {
-          width: 100%;
-          justify-content: center
-        }
-
-        .statusbar {
-          width: 100%;
-          gap: 8px 12px;
-          border-radius: 16px
-        }
-
-        .statusbar .sep {
-          display: none
-        }
-
-        .loop-strip {
-          width: 100%;
-          display: flex;
-          overflow-x: auto;
-          justify-content: flex-start;
-          border-radius: 18px;
-          scrollbar-width: none
-        }
-
-        .loop-strip::-webkit-scrollbar {
-          display: none
-        }
-
-        .trust {
-          font-size: 11px;
-          line-height: 1.6
-        }
-
-        .section {
-          padding: 54px 0
-        }
-
-        .dash {
-          margin-top: 32px;
-          border-radius: 18px
-        }
-
-        .dash-top {
-          align-items: flex-start;
-          gap: 12px;
-          flex-direction: column;
-          padding: 14px 16px
-        }
-
-        .dash-stat {
-          width: 100%;
-          justify-content: space-between;
-          gap: 10px;
-          font-size: 11.5px
-        }
-
-        .thread {
-          padding: 18px;
-          border-right: 0;
-          border-bottom: 1px solid var(--line)
-        }
-
-        .msg {
-          max-width: 100%
-        }
-
-        .bubble {
-          font-size: 14px
-        }
-
-        .side {
-          padding: 18px
-        }
-
-        .kpi b {
-          font-size: 20px
-        }
-
-        .metric {
-          padding: 22px 18px
-        }
-
-        .card {
-          padding: 22px
-        }
-
-        .tags {
-          gap: 9px
-        }
-
-        .tag {
-          font-size: 12.5px;
-          padding: 8px 12px
-        }
-
-        .final {
-          margin: 38px 0;
-          padding: 46px 18px;
-          border-radius: 20px
-        }
-
-        .foot-grid {
-          gap: 22px
-        }
-
-        .mobile-sticky-cta {
-          position: fixed;
-          left: 14px;
-          right: 14px;
-          bottom: 14px;
-          z-index: 80;
-          display: flex;
-          justify-content: center;
-          padding: 13px 16px;
-          border-radius: 999px;
-          background: var(--orange);
-          color: #fff;
-          font-weight: 700;
-          box-shadow: 0 18px 42px -18px rgba(240, 79, 42, .8)
-        }
-
-        /* the loop-strip duplicates the statusbar's pill shape right above it —
-           two similar-looking capsule widgets stacked together read as clutter
-           on a narrow screen, so we drop the decorative one and let the
-           statusbar (which carries the real trust stats) breathe instead */
-        .loop-strip {
-          display: none
-        }
-
-        .statusbar {
-          margin-top: 30px
-        }
-
-        .trust {
-          margin-top: 22px
-        }
-      }
-
-      @media(max-width:430px) {
-        .metrics {
-          grid-template-columns: 1fr
-        }
-
-        .dash-stat {
-          flex-wrap: wrap;
-          justify-content: flex-start
-        }
-      }
-
       @media(prefers-reduced-motion:reduce) {
 
         .reveal,
         .msg,
-        .card .ic,
-        .flow-step,
-        .flow-flag {
+        .card .ic {
           opacity: 1;
           transform: none;
           transition: none
@@ -1524,10 +1079,7 @@
 
         .banner b,
         .live i,
-        .pill .dot,
-        .loop-node,
-        .typing-bubble i,
-        .final .btn-primary {
+        .pill .dot {
           animation: none
         }
       }
@@ -1573,13 +1125,6 @@
           <span class="sep"></span>
           <span><b>7</b> agents live</span>
         </div>
-        <div class="loop-strip" aria-label="Loopwork lead handling flow">
-          <span class="loop-node">Lead in</span>
-          <span class="loop-node">Reply</span>
-          <span class="loop-node">Book</span>
-          <span class="loop-node">CRM sync</span>
-          <span class="loop-node">Handoff</span>
-        </div>
         <div class="trust">BUILT BY VS USUAL PHARMA LLP · GYMS · CLINICS · REAL ESTATE · NBFCS</div>
       </div>
     </header>
@@ -1604,10 +1149,6 @@
                 <div class="who">RAHUL · LEAD FROM INSTAGRAM AD</div>
                 <div class="bubble">Hi, what are your gym membership rates for 3 months?</div>
               </div>
-              <div class="msg out typing" data-typing>
-                <div class="who">LOOPWORK AGENT</div>
-                <div class="bubble typing-bubble"><i></i><i></i><i></i></div>
-              </div>
               <div class="msg out">
                 <div class="who">LOOPWORK AGENT</div>
                 <div class="bubble">Hi Rahul! 3 months is ₹6,000 with a free InBody scan. Want me to hold a free trial
@@ -1627,13 +1168,7 @@
               <div class="kpi"><span>Appointments booked</span><b data-count data-end="19">19</b></div>
               <div class="kpi"><span>Avg reply time</span><b data-count data-end="3" data-suffix="s">3s</b></div>
               <div class="kpi"><span>Leads saved from drop-off</span><b data-count data-end="41">41</b></div>
-              <div class="flow-list">
-                <div class="flow-step">Calendar slot held</div>
-                <div class="flow-step">CRM contact updated</div>
-                <div class="flow-step">Owner notified only if needed</div>
-              </div>
-              <div class="flag flow-flag">⚠ Priya asked for a custom corporate plan — flagged for you to take over.
-              </div>
+              <div class="flag">⚠ Priya asked for a custom corporate plan — flagged for you to take over.</div>
             </div>
           </div>
         </div>
@@ -1670,64 +1205,32 @@
         </div>
         <div class="grid">
           <div class="card reveal">
-            <div class="ic" style="background:var(--blue)">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="4" y="5" width="16" height="12" rx="2"></rect>
-                <path d="M4 9h16M8 20h8M12 17v3"></path>
-              </svg>
-            </div>
+            <div class="ic" style="background:var(--blue)">🌐</div>
             <h3>Websites that convert</h3>
             <p>Fast, clean sites built to turn a click into a booking. Live in days, not months.</p>
           </div>
           <div class="card reveal">
-            <div class="ic" style="background:var(--green)">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 7.5a7 7 0 0 1 12.2 4.7"></path>
-                <path d="M19 16.5a7 7 0 0 1-11.5 1.8L4 19l.8-3.1A7 7 0 0 1 5 7.5Z"></path>
-                <path d="M9 11h6M9 14h4"></path>
-              </svg>
-            </div>
+            <div class="ic" style="background:var(--green)">💬</div>
             <h3>WhatsApp automation</h3>
             <p>An AI agent answers every message, qualifies the lead, and books the slot on WhatsApp.</p>
           </div>
           <div class="card reveal">
-            <div class="ic" style="background:var(--orange)">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="7"></circle>
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M12 5V3M19 12h2M12 19v2M5 12H3"></path>
-              </svg>
-            </div>
+            <div class="ic" style="background:var(--orange)">🎯</div>
             <h3>Lead generation</h3>
             <p>We find and warm up the right prospects, then hand your team meetings, not spreadsheets.</p>
           </div>
           <div class="card reveal">
-            <div class="ic" style="background:var(--purple)">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 6h5l2 2h7v10H5z"></path>
-                <path d="M8 12h8M8 15h5"></path>
-              </svg>
-            </div>
+            <div class="ic" style="background:var(--purple)">🗂️</div>
             <h3>CRM that runs itself</h3>
             <p>Every lead, message, and follow-up logged automatically. No more chasing sticky notes.</p>
           </div>
           <div class="card reveal">
-            <div class="ic" style="background:var(--amber)">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M7 6h10v12H7z"></path>
-                <path d="M10 10h4M10 13h4M10 16h2"></path>
-                <path d="M17 8h2v12H9v-2"></path>
-              </svg>
-            </div>
+            <div class="ic" style="background:var(--amber)">🤝</div>
             <h3>DSA Agent for lenders</h3>
             <p>Sources and screens loan leads on WhatsApp, so DSAs and NBFCs only see ready-to-close files.</p>
           </div>
           <div class="card reveal">
-            <div class="ic" style="background:var(--pink)">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="m12 4 2.2 4.5 5 .7-3.6 3.5.8 5-4.4-2.4-4.4 2.4.8-5-3.6-3.5 5-.7z"></path>
-              </svg>
-            </div>
+            <div class="ic" style="background:var(--pink)">⭐</div>
             <h3>Reputation & reviews</h3>
             <p>Nudges happy customers to leave reviews and flags unhappy ones before they go public.</p>
           </div>
@@ -1906,8 +1409,6 @@
       </div>
     </footer>
 
-    <a class="mobile-sticky-cta" href="https://wa.me/918652333323">Message Loopwork on WhatsApp</a>
-
     <script>
       /* fade/slide reveal on scroll, plus a couple of extra tricks per-section */
       var io = new IntersectionObserver(function (es) {
@@ -1918,22 +1419,7 @@
             /* dashboard: pop the chat bubbles in one at a time like messages arriving */
             if (en.target.classList.contains('dash')) {
               var msgs = en.target.querySelectorAll('.msg');
-              msgs.forEach(function (m, i) { setTimeout(function () { m.classList.add('show'); }, i * 470); });
-
-              var typing = en.target.querySelector('[data-typing]');
-              if (typing) {
-                setTimeout(function () { typing.classList.add('done'); }, 1450);
-              }
-
-              var steps = en.target.querySelectorAll('.flow-step');
-              steps.forEach(function (step, i) {
-                setTimeout(function () { step.classList.add('show'); }, 1650 + (i * 360));
-              });
-
-              var flag = en.target.querySelector('.flow-flag');
-              if (flag) {
-                setTimeout(function () { flag.classList.add('show'); }, 2850);
-              }
+              msgs.forEach(function (m, i) { setTimeout(function () { m.classList.add('show'); }, i * 380); });
             }
 
             /* count up any numbers inside the revealed block */
